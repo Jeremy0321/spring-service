@@ -12,9 +12,7 @@
            http://www.springframework.org/schema/tx 
            http://www.springframework.org/schema/tx/spring-tx.xsd">
 
-	<!-- <context:component-scan base-package="com.jeremy"></context:component-scan>  -->  
-
-	
+	<!-- 业务Dao类 -->
 	<bean id="dmsDocumentDao" class="com.jeremy.dms.dao.DmsDocumentDao"/>
 
 	<!-- 定义切面类 -->
@@ -26,7 +24,7 @@
 	<!-- 配置切面 -->
 	<aop:config>
 		<!-- 定义切点函数 -->
-		<aop:pointcut expression="execution(** com.jeremy.dms.dao.DmsDocumentDao.insert(..))" id="daoPointcut"/>
+		<aop:pointcut expression="execution(** com.jeremy.dms.dao.IDmsDocumentDao.insert(..))" id="daoPointcut"/>
 		<aop:aspect ref="dmsAspect">
 			
 			<!-- 前置通知 -->
@@ -47,19 +45,4 @@
 		
 	</aop:config>
 	
-	
-	<bean name="dmsDocument" class="com.jeremy.dms.bean.DmsDocument"
-		init-method="init" destroy-method="destroy">
-		<property name="id" value="2"></property>
-		<property name="documentName" value="评估申请单"></property>
-	</bean>
-
-	<!-- <bean id="dmsDocumentRegistry" class="com.jeremy.dms.DmsDocumentRegistry" >
-		<property name="dmsDocumentService" ref="dmsDocumentService"></property>
-	</bean>
-
-	<bean id="dmsDocumentService" class="com.jeremy.dms.DmsDocumentService">
-	</bean> -->
-
-	<!-- <bean id="applicationContextWapper" class="com.jeremy.ApplicationContextWapper"></bean> -->
 </beans>

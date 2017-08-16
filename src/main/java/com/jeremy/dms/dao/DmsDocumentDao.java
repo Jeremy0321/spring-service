@@ -2,7 +2,14 @@ package com.jeremy.dms.dao;
 
 import com.jeremy.dms.bean.DmsDocument;
 
-public class DmsDocumentDao {
+public class DmsDocumentDao implements IDmsDocumentDao{
+
+	
+	public DmsDocumentDao() {
+		super();
+		// TODO Auto-generated constructor stub
+		System.out.println("init DmsDocumentDao");
+	}
 
 	public int insert(DmsDocument dmsDocument){
 		System.out.println("insert dms document ...");

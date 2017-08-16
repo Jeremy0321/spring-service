@@ -17,8 +17,11 @@ public class Bootstrap {
 	
 	public static void testAopBySpringContext(){
 		ClassPathXmlApplicationContext app = new ClassPathXmlApplicationContext("classpath:config/applicationContext.xml");
-		DmsDocumentDao dmsDocumentDao = app.getBean("dmsDocumentDao", DmsDocumentDao.class);
-		DmsDocument dmsDocument = app.getBean("dmsDocument", DmsDocument.class);
+		DmsDocumentDao dmsDocumentDao = (DmsDocumentDao)app.getBean("dmsDocumentDao");
+		
+		DmsDocument dmsDocument = new DmsDocument();
+		dmsDocument.setDocumentName("评估报告单");
+		dmsDocument.setReferenceNo("XX002");
 		dmsDocumentDao.insert(dmsDocument);
 		app.close();
 	}
