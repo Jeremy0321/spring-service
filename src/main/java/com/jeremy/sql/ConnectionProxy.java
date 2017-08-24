@@ -1,0 +1,2695 @@
+package com.jeremy.sql;
+
+import java.sql.Array;
+import java.sql.Blob;
+import java.sql.CallableStatement;
+import java.sql.Clob;
+import java.sql.DatabaseMetaData;
+import java.sql.NClob;
+import java.sql.PreparedStatement;
+import java.sql.SQLClientInfoException;
+import java.sql.SQLException;
+import java.sql.SQLWarning;
+import java.sql.SQLXML;
+import java.sql.Savepoint;
+import java.sql.Statement;
+import java.sql.Struct;
+import java.util.Map;
+import java.util.Properties;
+import java.util.TimeZone;
+import java.util.concurrent.Executor;
+
+import com.mysql.jdbc.Connection;
+import com.mysql.jdbc.ExceptionInterceptor;
+import com.mysql.jdbc.Extension;
+import com.mysql.jdbc.MySQLConnection;
+import com.mysql.jdbc.log.Log;
+
+public class ConnectionProxy implements Connection{
+
+	Connection conn;
+	public Statement createStatement() throws SQLException {
+		// TODO Auto-generated method stub
+		return conn.createStatement();
+	}
+
+	public PreparedStatement prepareStatement(String sql) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public CallableStatement prepareCall(String sql) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public String nativeSQL(String sql) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void setAutoCommit(boolean autoCommit) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public boolean getAutoCommit() throws SQLException {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public void commit() throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void rollback() throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void close() throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public boolean isClosed() throws SQLException {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public DatabaseMetaData getMetaData() throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void setReadOnly(boolean readOnly) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public boolean isReadOnly() throws SQLException {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public void setCatalog(String catalog) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public String getCatalog() throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void setTransactionIsolation(int level) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public int getTransactionIsolation() throws SQLException {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public SQLWarning getWarnings() throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void clearWarnings() throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public Statement createStatement(int resultSetType, int resultSetConcurrency) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public PreparedStatement prepareStatement(String sql, int resultSetType, int resultSetConcurrency)
+			throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public CallableStatement prepareCall(String sql, int resultSetType, int resultSetConcurrency) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Map<String, Class<?>> getTypeMap() throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void setTypeMap(Map<String, Class<?>> map) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setHoldability(int holdability) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public int getHoldability() throws SQLException {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public Savepoint setSavepoint() throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Savepoint setSavepoint(String name) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void rollback(Savepoint savepoint) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void releaseSavepoint(Savepoint savepoint) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public Statement createStatement(int resultSetType, int resultSetConcurrency, int resultSetHoldability)
+			throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public PreparedStatement prepareStatement(String sql, int resultSetType, int resultSetConcurrency,
+			int resultSetHoldability) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public CallableStatement prepareCall(String sql, int resultSetType, int resultSetConcurrency,
+			int resultSetHoldability) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public PreparedStatement prepareStatement(String sql, int autoGeneratedKeys) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public PreparedStatement prepareStatement(String sql, int[] columnIndexes) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public PreparedStatement prepareStatement(String sql, String[] columnNames) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Clob createClob() throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Blob createBlob() throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public NClob createNClob() throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public SQLXML createSQLXML() throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public boolean isValid(int timeout) throws SQLException {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public void setClientInfo(String name, String value) throws SQLClientInfoException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setClientInfo(Properties properties) throws SQLClientInfoException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public String getClientInfo(String name) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Properties getClientInfo() throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Array createArrayOf(String typeName, Object[] elements) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Struct createStruct(String typeName, Object[] attributes) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public <T> T unwrap(Class<T> iface) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public boolean isWrapperFor(Class<?> iface) throws SQLException {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public String exposeAsXml() throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public boolean getAllowLoadLocalInfile() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean getAllowMultiQueries() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean getAllowNanAndInf() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean getAllowUrlInLocalInfile() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean getAlwaysSendSetIsolation() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean getAutoDeserialize() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean getAutoGenerateTestcaseScript() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean getAutoReconnectForPools() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public int getBlobSendChunkSize() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public boolean getCacheCallableStatements() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean getCachePreparedStatements() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean getCacheResultSetMetadata() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean getCacheServerConfiguration() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public int getCallableStatementCacheSize() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public boolean getCapitalizeTypeNames() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public String getCharacterSetResults() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public boolean getClobberStreamingResults() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public String getClobCharacterEncoding() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public String getConnectionCollation() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public int getConnectTimeout() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public boolean getContinueBatchOnError() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean getCreateDatabaseIfNotExist() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public int getDefaultFetchSize() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public boolean getDontTrackOpenResources() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean getDumpQueriesOnException() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean getDynamicCalendars() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean getElideSetAutoCommits() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean getEmptyStringsConvertToZero() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean getEmulateLocators() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean getEmulateUnsupportedPstmts() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean getEnablePacketDebug() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public String getEncoding() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public boolean getExplainSlowQueries() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean getFailOverReadOnly() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean getGatherPerformanceMetrics() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean getHoldResultsOpenOverStatementClose() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean getIgnoreNonTxTables() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public int getInitialTimeout() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public boolean getInteractiveClient() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean getIsInteractiveClient() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean getJdbcCompliantTruncation() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public int getLocatorFetchBufferSize() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public String getLogger() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public String getLoggerClassName() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public boolean getLogSlowQueries() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean getMaintainTimeStats() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public int getMaxQuerySizeToLog() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public int getMaxReconnects() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public int getMaxRows() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public int getMetadataCacheSize() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public boolean getNoDatetimeStringSync() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean getNullCatalogMeansCurrent() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean getNullNamePatternMatchesAll() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public int getPacketDebugBufferSize() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public boolean getParanoid() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean getPedantic() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public int getPreparedStatementCacheSize() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public int getPreparedStatementCacheSqlLimit() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public boolean getProfileSql() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean getProfileSQL() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public String getPropertiesTransform() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public int getQueriesBeforeRetryMaster() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public boolean getReconnectAtTxEnd() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean getRelaxAutoCommit() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public int getReportMetricsIntervalMillis() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public boolean getRequireSSL() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean getRollbackOnPooledClose() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean getRoundRobinLoadBalance() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean getRunningCTS13() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public int getSecondsBeforeRetryMaster() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public String getServerTimezone() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public String getSessionVariables() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public int getSlowQueryThresholdMillis() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public String getSocketFactoryClassName() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public int getSocketTimeout() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public boolean getStrictFloatingPoint() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean getStrictUpdates() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean getTinyInt1isBit() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean getTraceProtocol() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean getTransformedBitIsBoolean() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean getUseCompression() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean getUseFastIntParsing() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean getUseHostsInPrivileges() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean getUseInformationSchema() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean getUseLocalSessionState() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean getUseOldUTF8Behavior() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean getUseOnlyServerErrorMessages() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean getUseReadAheadInput() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean getUseServerPreparedStmts() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean getUseSqlStateCodes() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean getUseSSL() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean getUseStreamLengthsInPrepStmts() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean getUseTimezone() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean getUseUltraDevWorkAround() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean getUseUnbufferedInput() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean getUseUnicode() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean getUseUsageAdvisor() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean getYearIsDateType() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public String getZeroDateTimeBehavior() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void setAllowLoadLocalInfile(boolean property) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setAllowMultiQueries(boolean property) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setAllowNanAndInf(boolean flag) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setAllowUrlInLocalInfile(boolean flag) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setAlwaysSendSetIsolation(boolean flag) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setAutoDeserialize(boolean flag) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setAutoGenerateTestcaseScript(boolean flag) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setAutoReconnect(boolean flag) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setAutoReconnectForConnectionPools(boolean property) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setAutoReconnectForPools(boolean flag) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setBlobSendChunkSize(String value) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setCacheCallableStatements(boolean flag) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setCachePreparedStatements(boolean flag) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setCacheResultSetMetadata(boolean property) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setCacheServerConfiguration(boolean flag) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setCallableStatementCacheSize(int size) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setCapitalizeDBMDTypes(boolean property) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setCapitalizeTypeNames(boolean flag) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setCharacterEncoding(String encoding) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setCharacterSetResults(String characterSet) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setClobberStreamingResults(boolean flag) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setClobCharacterEncoding(String encoding) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setConnectionCollation(String collation) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setConnectTimeout(int timeoutMs) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setContinueBatchOnError(boolean property) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setCreateDatabaseIfNotExist(boolean flag) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setDefaultFetchSize(int n) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setDetectServerPreparedStmts(boolean property) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setDontTrackOpenResources(boolean flag) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setDumpQueriesOnException(boolean flag) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setDynamicCalendars(boolean flag) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setElideSetAutoCommits(boolean flag) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setEmptyStringsConvertToZero(boolean flag) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setEmulateLocators(boolean property) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setEmulateUnsupportedPstmts(boolean flag) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setEnablePacketDebug(boolean flag) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setEncoding(String property) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setExplainSlowQueries(boolean flag) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setFailOverReadOnly(boolean flag) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setGatherPerformanceMetrics(boolean flag) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setHoldResultsOpenOverStatementClose(boolean flag) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setIgnoreNonTxTables(boolean property) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setInitialTimeout(int property) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setIsInteractiveClient(boolean property) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setJdbcCompliantTruncation(boolean flag) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setLocatorFetchBufferSize(String value) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setLogger(String property) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setLoggerClassName(String className) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setLogSlowQueries(boolean flag) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setMaintainTimeStats(boolean flag) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setMaxQuerySizeToLog(int sizeInBytes) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setMaxReconnects(int property) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setMaxRows(int property) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setMetadataCacheSize(int value) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setNoDatetimeStringSync(boolean flag) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setNullCatalogMeansCurrent(boolean value) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setNullNamePatternMatchesAll(boolean value) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setPacketDebugBufferSize(int size) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setParanoid(boolean property) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setPedantic(boolean property) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setPreparedStatementCacheSize(int cacheSize) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setPreparedStatementCacheSqlLimit(int cacheSqlLimit) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setProfileSql(boolean property) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setProfileSQL(boolean flag) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setPropertiesTransform(String value) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setQueriesBeforeRetryMaster(int property) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setReconnectAtTxEnd(boolean property) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setRelaxAutoCommit(boolean property) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setReportMetricsIntervalMillis(int millis) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setRequireSSL(boolean property) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setRetainStatementAfterResultSetClose(boolean flag) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setRollbackOnPooledClose(boolean flag) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setRoundRobinLoadBalance(boolean flag) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setRunningCTS13(boolean flag) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setSecondsBeforeRetryMaster(int property) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setServerTimezone(String property) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setSessionVariables(String variables) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setSlowQueryThresholdMillis(int millis) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setSocketFactoryClassName(String property) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setSocketTimeout(int property) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setStrictFloatingPoint(boolean property) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setStrictUpdates(boolean property) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setTinyInt1isBit(boolean flag) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setTraceProtocol(boolean flag) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setTransformedBitIsBoolean(boolean flag) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setUseCompression(boolean property) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setUseFastIntParsing(boolean flag) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setUseHostsInPrivileges(boolean property) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setUseInformationSchema(boolean flag) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setUseLocalSessionState(boolean flag) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setUseOldUTF8Behavior(boolean flag) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setUseOnlyServerErrorMessages(boolean flag) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setUseReadAheadInput(boolean flag) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setUseServerPreparedStmts(boolean flag) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setUseSqlStateCodes(boolean flag) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setUseSSL(boolean property) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setUseStreamLengthsInPrepStmts(boolean property) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setUseTimezone(boolean property) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setUseUltraDevWorkAround(boolean property) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setUseUnbufferedInput(boolean flag) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setUseUnicode(boolean flag) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setUseUsageAdvisor(boolean useUsageAdvisorFlag) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setYearIsDateType(boolean flag) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setZeroDateTimeBehavior(String behavior) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public boolean useUnbufferedInput() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean getUseCursorFetch() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public void setUseCursorFetch(boolean flag) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public boolean getOverrideSupportsIntegrityEnhancementFacility() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public void setOverrideSupportsIntegrityEnhancementFacility(boolean flag) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public boolean getNoTimezoneConversionForTimeType() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public void setNoTimezoneConversionForTimeType(boolean flag) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public boolean getNoTimezoneConversionForDateType() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public void setNoTimezoneConversionForDateType(boolean flag) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public boolean getCacheDefaultTimezone() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public void setCacheDefaultTimezone(boolean flag) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public boolean getUseJDBCCompliantTimezoneShift() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public void setUseJDBCCompliantTimezoneShift(boolean flag) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public boolean getAutoClosePStmtStreams() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public void setAutoClosePStmtStreams(boolean flag) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public boolean getProcessEscapeCodesForPrepStmts() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public void setProcessEscapeCodesForPrepStmts(boolean flag) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public boolean getUseGmtMillisForDatetimes() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public void setUseGmtMillisForDatetimes(boolean flag) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public boolean getDumpMetadataOnColumnNotFound() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public void setDumpMetadataOnColumnNotFound(boolean flag) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public String getResourceId() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void setResourceId(String resourceId) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public boolean getRewriteBatchedStatements() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public void setRewriteBatchedStatements(boolean flag) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public boolean getJdbcCompliantTruncationForReads() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public void setJdbcCompliantTruncationForReads(boolean jdbcCompliantTruncationForReads) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public boolean getUseJvmCharsetConverters() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public void setUseJvmCharsetConverters(boolean flag) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public boolean getPinGlobalTxToPhysicalConnection() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public void setPinGlobalTxToPhysicalConnection(boolean flag) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setGatherPerfMetrics(boolean flag) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public boolean getGatherPerfMetrics() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public void setUltraDevHack(boolean flag) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public boolean getUltraDevHack() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public void setInteractiveClient(boolean property) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setSocketFactory(String name) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public String getSocketFactory() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void setUseServerPrepStmts(boolean flag) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public boolean getUseServerPrepStmts() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public void setCacheCallableStmts(boolean flag) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public boolean getCacheCallableStmts() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public void setCachePrepStmts(boolean flag) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public boolean getCachePrepStmts() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public void setCallableStmtCacheSize(int cacheSize) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public int getCallableStmtCacheSize() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public void setPrepStmtCacheSize(int cacheSize) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public int getPrepStmtCacheSize() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public void setPrepStmtCacheSqlLimit(int sqlLimit) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public int getPrepStmtCacheSqlLimit() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public boolean getNoAccessToProcedureBodies() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public void setNoAccessToProcedureBodies(boolean flag) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public boolean getUseOldAliasMetadataBehavior() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public void setUseOldAliasMetadataBehavior(boolean flag) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public String getClientCertificateKeyStorePassword() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void setClientCertificateKeyStorePassword(String value) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public String getClientCertificateKeyStoreType() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void setClientCertificateKeyStoreType(String value) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public String getClientCertificateKeyStoreUrl() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void setClientCertificateKeyStoreUrl(String value) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public String getTrustCertificateKeyStorePassword() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void setTrustCertificateKeyStorePassword(String value) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public String getTrustCertificateKeyStoreType() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void setTrustCertificateKeyStoreType(String value) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public String getTrustCertificateKeyStoreUrl() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void setTrustCertificateKeyStoreUrl(String value) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public boolean getUseSSPSCompatibleTimezoneShift() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public void setUseSSPSCompatibleTimezoneShift(boolean flag) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public boolean getTreatUtilDateAsTimestamp() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public void setTreatUtilDateAsTimestamp(boolean flag) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public boolean getUseFastDateParsing() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public void setUseFastDateParsing(boolean flag) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public String getLocalSocketAddress() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void setLocalSocketAddress(String address) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setUseConfigs(String configs) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public String getUseConfigs() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public boolean getGenerateSimpleParameterMetadata() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public void setGenerateSimpleParameterMetadata(boolean flag) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public boolean getLogXaCommands() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public void setLogXaCommands(boolean flag) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public int getResultSetSizeThreshold() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public void setResultSetSizeThreshold(int threshold) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public int getNetTimeoutForStreamingResults() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public void setNetTimeoutForStreamingResults(int value) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public boolean getEnableQueryTimeouts() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public void setEnableQueryTimeouts(boolean flag) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public boolean getPadCharsWithSpace() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public void setPadCharsWithSpace(boolean flag) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public boolean getUseDynamicCharsetInfo() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public void setUseDynamicCharsetInfo(boolean flag) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public String getClientInfoProvider() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void setClientInfoProvider(String classname) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public boolean getPopulateInsertRowWithDefaultValues() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public void setPopulateInsertRowWithDefaultValues(boolean flag) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public String getLoadBalanceStrategy() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void setLoadBalanceStrategy(String strategy) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public boolean getTcpNoDelay() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public void setTcpNoDelay(boolean flag) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public boolean getTcpKeepAlive() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public void setTcpKeepAlive(boolean flag) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public int getTcpRcvBuf() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public void setTcpRcvBuf(int bufSize) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public int getTcpSndBuf() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public void setTcpSndBuf(int bufSize) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public int getTcpTrafficClass() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public void setTcpTrafficClass(int classFlags) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public boolean getUseNanosForElapsedTime() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public void setUseNanosForElapsedTime(boolean flag) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public long getSlowQueryThresholdNanos() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public void setSlowQueryThresholdNanos(long nanos) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public String getStatementInterceptors() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void setStatementInterceptors(String value) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public boolean getUseDirectRowUnpack() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public void setUseDirectRowUnpack(boolean flag) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public String getLargeRowSizeThreshold() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void setLargeRowSizeThreshold(String value) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public boolean getUseBlobToStoreUTF8OutsideBMP() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public void setUseBlobToStoreUTF8OutsideBMP(boolean flag) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public String getUtf8OutsideBmpExcludedColumnNamePattern() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void setUtf8OutsideBmpExcludedColumnNamePattern(String regexPattern) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public String getUtf8OutsideBmpIncludedColumnNamePattern() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void setUtf8OutsideBmpIncludedColumnNamePattern(String regexPattern) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public boolean getIncludeInnodbStatusInDeadlockExceptions() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public void setIncludeInnodbStatusInDeadlockExceptions(boolean flag) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public boolean getIncludeThreadDumpInDeadlockExceptions() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public void setIncludeThreadDumpInDeadlockExceptions(boolean flag) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public boolean getIncludeThreadNamesAsStatementComment() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public void setIncludeThreadNamesAsStatementComment(boolean flag) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public boolean getBlobsAreStrings() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public void setBlobsAreStrings(boolean flag) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public boolean getFunctionsNeverReturnBlobs() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public void setFunctionsNeverReturnBlobs(boolean flag) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public boolean getAutoSlowLog() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public void setAutoSlowLog(boolean flag) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public String getConnectionLifecycleInterceptors() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void setConnectionLifecycleInterceptors(String interceptors) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public String getProfilerEventHandler() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void setProfilerEventHandler(String handler) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public boolean getVerifyServerCertificate() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public void setVerifyServerCertificate(boolean flag) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public boolean getUseLegacyDatetimeCode() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public void setUseLegacyDatetimeCode(boolean flag) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public int getSelfDestructOnPingSecondsLifetime() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public void setSelfDestructOnPingSecondsLifetime(int seconds) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public int getSelfDestructOnPingMaxOperations() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public void setSelfDestructOnPingMaxOperations(int maxOperations) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public boolean getUseColumnNamesInFindColumn() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public void setUseColumnNamesInFindColumn(boolean flag) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public boolean getUseLocalTransactionState() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public void setUseLocalTransactionState(boolean flag) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public boolean getCompensateOnDuplicateKeyUpdateCounts() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public void setCompensateOnDuplicateKeyUpdateCounts(boolean flag) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setUseAffectedRows(boolean flag) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public boolean getUseAffectedRows() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public void setPasswordCharacterEncoding(String characterSet) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public String getPasswordCharacterEncoding() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public int getLoadBalanceBlacklistTimeout() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public void setLoadBalanceBlacklistTimeout(int loadBalanceBlacklistTimeout) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setRetriesAllDown(int retriesAllDown) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public int getRetriesAllDown() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public ExceptionInterceptor getExceptionInterceptor() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void setExceptionInterceptors(String exceptionInterceptors) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public String getExceptionInterceptors() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public boolean getQueryTimeoutKillsConnection() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public void setQueryTimeoutKillsConnection(boolean queryTimeoutKillsConnection) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public int getMaxAllowedPacket() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public boolean getRetainStatementAfterResultSetClose() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public int getLoadBalancePingTimeout() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public void setLoadBalancePingTimeout(int loadBalancePingTimeout) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public boolean getLoadBalanceValidateConnectionOnSwapServer() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public void setLoadBalanceValidateConnectionOnSwapServer(boolean loadBalanceValidateConnectionOnSwapServer) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public String getLoadBalanceConnectionGroup() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void setLoadBalanceConnectionGroup(String loadBalanceConnectionGroup) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public String getLoadBalanceExceptionChecker() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void setLoadBalanceExceptionChecker(String loadBalanceExceptionChecker) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public String getLoadBalanceSQLStateFailover() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void setLoadBalanceSQLStateFailover(String loadBalanceSQLStateFailover) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public String getLoadBalanceSQLExceptionSubclassFailover() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void setLoadBalanceSQLExceptionSubclassFailover(String loadBalanceSQLExceptionSubclassFailover) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public boolean getLoadBalanceEnableJMX() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public void setLoadBalanceEnableJMX(boolean loadBalanceEnableJMX) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setLoadBalanceAutoCommitStatementThreshold(int loadBalanceAutoCommitStatementThreshold)
+			throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public int getLoadBalanceAutoCommitStatementThreshold() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public void setLoadBalanceAutoCommitStatementRegex(String loadBalanceAutoCommitStatementRegex) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public String getLoadBalanceAutoCommitStatementRegex() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void setAuthenticationPlugins(String authenticationPlugins) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public String getAuthenticationPlugins() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void setDisabledAuthenticationPlugins(String disabledAuthenticationPlugins) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public String getDisabledAuthenticationPlugins() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void setDefaultAuthenticationPlugin(String defaultAuthenticationPlugin) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public String getDefaultAuthenticationPlugin() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void setParseInfoCacheFactory(String factoryClassname) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public String getParseInfoCacheFactory() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void setServerConfigCacheFactory(String factoryClassname) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public String getServerConfigCacheFactory() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void setDisconnectOnExpiredPasswords(boolean disconnectOnExpiredPasswords) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public boolean getDisconnectOnExpiredPasswords() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean getAllowMasterDownConnections() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public void setAllowMasterDownConnections(boolean connectIfMasterDown) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public boolean getReplicationEnableJMX() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public void setReplicationEnableJMX(boolean replicationEnableJMX) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setGetProceduresReturnsFunctions(boolean getProcedureReturnsFunctions) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public boolean getGetProceduresReturnsFunctions() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public void setDetectCustomCollations(boolean detectCustomCollations) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public boolean getDetectCustomCollations() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public String getConnectionAttributes() throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public String getServerRSAPublicKeyFile() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void setServerRSAPublicKeyFile(String serverRSAPublicKeyFile) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public boolean getAllowPublicKeyRetrieval() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public void setAllowPublicKeyRetrieval(boolean allowPublicKeyRetrieval) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setDontCheckOnDuplicateKeyUpdateInSQL(boolean dontCheckOnDuplicateKeyUpdateInSQL) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public boolean getDontCheckOnDuplicateKeyUpdateInSQL() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public void setSocksProxyHost(String socksProxyHost) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public String getSocksProxyHost() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void setSocksProxyPort(int socksProxyPort) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public int getSocksProxyPort() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public boolean getReadOnlyPropagatesToServer() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public void setReadOnlyPropagatesToServer(boolean flag) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public String getEnabledSSLCipherSuites() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void setEnabledSSLCipherSuites(String cipherSuites) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void changeUser(String userName, String newPassword) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void clearHasTriedMaster() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public PreparedStatement clientPrepareStatement(String sql) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public PreparedStatement clientPrepareStatement(String sql, int autoGenKeyIndex) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public PreparedStatement clientPrepareStatement(String sql, int resultSetType, int resultSetConcurrency)
+			throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public PreparedStatement clientPrepareStatement(String sql, int[] autoGenKeyIndexes) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public PreparedStatement clientPrepareStatement(String sql, int resultSetType, int resultSetConcurrency,
+			int resultSetHoldability) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public PreparedStatement clientPrepareStatement(String sql, String[] autoGenKeyColNames) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public int getActiveStatementCount() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public long getIdleFor() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public Log getLog() throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public String getServerCharacterEncoding() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public String getServerCharset() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public TimeZone getServerTimezoneTZ() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public String getStatementComment() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public boolean hasTriedMaster() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean isInGlobalTx() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public void setInGlobalTx(boolean flag) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public boolean isMasterConnection() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean isNoBackslashEscapesSet() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean isSameResource(Connection c) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean lowerCaseTableNames() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean parserKnowsUnicode() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public void ping() throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void resetServerState() throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public PreparedStatement serverPrepareStatement(String sql) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public PreparedStatement serverPrepareStatement(String sql, int autoGenKeyIndex) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public PreparedStatement serverPrepareStatement(String sql, int resultSetType, int resultSetConcurrency)
+			throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public PreparedStatement serverPrepareStatement(String sql, int resultSetType, int resultSetConcurrency,
+			int resultSetHoldability) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public PreparedStatement serverPrepareStatement(String sql, int[] autoGenKeyIndexes) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public PreparedStatement serverPrepareStatement(String sql, String[] autoGenKeyColNames) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void setFailedOver(boolean flag) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setPreferSlaveDuringFailover(boolean flag) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setStatementComment(String comment) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void shutdownServer() throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public boolean supportsIsolationLevel() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean supportsQuotedIdentifiers() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean supportsTransactions() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean versionMeetsMinimum(int major, int minor, int subminor) throws SQLException {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public void reportQueryTime(long millisOrNanos) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public boolean isAbonormallyLongQuery(long millisOrNanos) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public void initializeExtension(Extension ex) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public int getAutoIncrementIncrement() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public boolean hasSameProperties(Connection c) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public Properties getProperties() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public String getHost() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void setProxy(MySQLConnection proxy) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public boolean isServerLocal() throws SQLException {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public int getSessionMaxRows() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public void setSessionMaxRows(int max) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setSchema(String schema) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public String getSchema() throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void abort(Executor executor) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setNetworkTimeout(Executor executor, int milliseconds) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public int getNetworkTimeout() throws SQLException {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public void abortInternal() throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void checkClosed() throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public Object getConnectionMutex() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}
