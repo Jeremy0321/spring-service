@@ -7,11 +7,19 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.jeremy.dms.bean.DmsDocument;
 import com.jeremy.dms.dao.DmsDocumentDao;
+import com.jeremy.touna.bean.ApplyInfo;
+import com.jeremy.touna.bean.Customer;
 
 public class Bootstrap {
 
 	public static void main(String[] args) {
-		testAopBySpringContext();
+//		initBeanFactoryBySpringContext();
+		ClassPathXmlApplicationContext app = new ClassPathXmlApplicationContext("classpath:config/applicationContext.xml");
+		ApplyInfo appinfo = app.getBean(ApplyInfo.class);
+		System.out.println(appinfo);
+		Customer c  = app.getBean(Customer.class);
+		System.out.println(c);
+		app.close();
 	}
 	
 	
@@ -28,8 +36,8 @@ public class Bootstrap {
 	
 	public static void initBeanFactoryBySpringContext(){
 		ClassPathXmlApplicationContext app = new ClassPathXmlApplicationContext("classpath:config/applicationContext.xml");
-		DmsDocument dmsDocument = app.getBean("dmsDocument", DmsDocument.class);
-		System.out.println(dmsDocument);
+		DmsDocumentDao dmsDocumentDao = app.getBean("dmsDocumentDao", DmsDocumentDao.class);
+		System.out.println(dmsDocumentDao);
 		app.close();
 	}
 	
@@ -37,7 +45,7 @@ public class Bootstrap {
 		DefaultListableBeanFactory beanFactory = new DefaultListableBeanFactory();
 		BeanDefinitionReader beanDefinitionReader = new XmlBeanDefinitionReader(beanFactory);
 		beanDefinitionReader.loadBeanDefinitions("classpath:config/applicationContext.xml");
-		DmsDocument dmsDocument = beanFactory.getBean("dmsDocument", DmsDocument.class);
-		System.out.println(dmsDocument);
+		DmsDocumentDao dmsDocumentDao = beanFactory.getBean("dmsDocumentDao", DmsDocumentDao.class);
+		System.out.println(dmsDocumentDao);
 	}
 }

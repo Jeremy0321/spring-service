@@ -12,7 +12,7 @@
 	<!-- provider默认超时时间: 5S -->
 	<dubbo:provider timeout="5000" />
 
-	<dubbo:registry id="jeremyService" address="zookeeper://10.1.5.160:2181" client="zkclient" check="false" />
+	<dubbo:registry id="jeremyService" address="zookeeper://127.0.0.1:2181" client="zkclient" check="false" />
 	
 	 <!-- 用dubbo协议在20880端口暴露服务 -->
     <dubbo:protocol name="dubbo" port="20880" />

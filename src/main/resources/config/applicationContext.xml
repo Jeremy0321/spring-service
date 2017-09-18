@@ -3,6 +3,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
 	xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xmlns:touna="http://credit.touna.cn/schema/touna" 
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
            http://www.springframework.org/schema/beans/spring-beans.xsd
            http://www.springframework.org/schema/context
@@ -10,39 +11,17 @@
            http://www.springframework.org/schema/aop
            http://www.springframework.org/schema/aop/spring-aop.xsd
            http://www.springframework.org/schema/tx 
-           http://www.springframework.org/schema/tx/spring-tx.xsd">
+           http://www.springframework.org/schema/tx/spring-tx.xsd
+           http://credit.touna.cn/schema/touna 
+           http://credit.touna.cn/schema/touna/touna.xsd">
 
 	<!-- 业务Dao类 -->
-	<bean id="dmsDocumentDao" class="com.jeremy.dms.dao.DmsDocumentDao"/>
-
+<!-- 	<bean id="dmsDocumentDao" class="com.jeremy.dms.dao.DmsDocumentDao"/>
+ -->
 	<!-- 定义切面类 -->
-	<bean id="dmsAspect" class="com.jeremy.dms.DmsAspect"></bean>
+	<!-- <bean id="dmsAspect" class="com.jeremy.dms.DmsAspect"></bean> -->
 
-	<!-- 启用AspectJ自动代理 -->	
-	<aop:aspectj-autoproxy/>
-	
-	<!-- 配置切面 -->
-	<aop:config>
-		<!-- 定义切点函数 -->
-		<aop:pointcut expression="execution(** com.jeremy.dms.dao.IDmsDocumentDao.insert(..))" id="daoPointcut"/>
-		<aop:aspect ref="dmsAspect">
-			
-			<!-- 前置通知 -->
-			<aop:before method="before" pointcut-ref="daoPointcut" arg-names="arg"/>
-			
-			<!-- 后置通知 -->
-			<aop:after-returning method="afterReturn" pointcut-ref="daoPointcut" returning="returnVal"/>
-			
-			<!-- 环绕通知 -->
-			<aop:around method="around" pointcut-ref="daoPointcut" arg-names="joinPoint"/>
-			
-			<!-- 异常通知 -->
-			<aop:after-throwing method="afterThrowing" pointcut-ref="daoPointcut" throwing="throwable"/>
-			
-			<!-- 后置通知 -->
-			<aop:after method="after" pointcut-ref="daoPointcut" />
-		</aop:aspect>
-		
-	</aop:config>
+	<touna:apply id="xxxxapply" siteCode="0001" productCode="P001" loanWay="押证" repayment="等本等息" />
+	<touna:customer id="xxxxcustomer" name="张三" idCardNo="3337772sxx" gender="男" nation="汉" address="广东深圳" />
 	
 </beans>

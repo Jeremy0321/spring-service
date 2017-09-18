@@ -23,7 +23,10 @@ public class CglibProxy implements MethodInterceptor{
 	
 
 	public Object intercept(Object target, Method method, Object[] args, MethodProxy proxy) throws Throwable {
-		return proxy.invokeSuper(target, args);
+		System.out.println("start ...");
+		Object obj = proxy.invokeSuper(target, args);
+		System.out.println("end ...");
+		return obj;
 	}
 
 	
